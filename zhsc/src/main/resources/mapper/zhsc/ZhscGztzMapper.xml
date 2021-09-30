@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jzsjcdlxxzx.zhsc.mapper.ZhscGztzMapper">
+    
+    <resultMap type="ZhscGztz" id="ZhscGztzResult">
+        <result property="id"    column="id"    />
+        <result property="xq"    column="xq"    />
+        <result property="zb"    column="zb"    />
+        <result property="ytdsyqr"    column="ytdsyqr"    />
+        <result property="wz"    column="wz"    />
+        <result property="mj"    column="mj"    />
+        <result property="ghyt"    column="ghyt"    />
+        <result property="sflrndcbjh"    column="sflrndcbjh"    />
+        <result property="tdzqqk"    column="tdzqqk"    />
+        <result property="tdsyqsfsh"    column="tdsyqsfsh"    />
+        <result property="zxtdz"    column="zxtdz"    />
+        <result property="lwth"    column="lwth"    />
+        <result property="xmsc"    column="xmsc"    />
+        <result property="fk"    column="fk"    />
+        <result property="zz"    column="zz"    />
+        <result property="ly"    column="ly"    />
+        <result property="wk"    column="wk"    />
+        <result property="rw"    column="rw"    />
+        <result property="kgbzqk"    column="kgbzqk"    />
+        <result property="bcqk"    column="bcqk"    />
+        <result property="cqqk"    column="cqqk"    />
+        <result property="dxgwhc"    column="dxgwhc"    />
+        <result property="ljqy"    column="ljqy"    />
+        <result property="cbhtqd"    column="cbhtqd"    />
+        <result property="bcfzf"    column="bcfzf"    />
+        <result property="cbhs"    column="cbhs"    />
+        <result property="bjhc"    column="bjhc"    />
+        <result property="tqgd"    column="tqgd"    />
+    </resultMap>
+
+    <sql id="selectZhscGztzVo">
+        select id, xq, zb, ytdsyqr, wz, mj, ghyt, sflrndcbjh, tdzqqk, tdsyqsfsh, zxtdz, lwth, xmsc, fk, zz, ly, wk, rw, kgbzqk, bcqk, cqqk, dxgwhc, ljqy, cbhtqd, bcfzf, cbhs, bjhc, tqgd from zhsc_gztz
+    </sql>
+
+    <select id="selectZhscGztzList" parameterType="ZhscGztz" resultMap="ZhscGztzResult">
+        <include refid="selectZhscGztzVo"/>
+        <where>  
+            <if test="xq != null  and xq != ''"> and xq = #{xq}</if>
+            <if test="zb != null  and zb != ''"> and zb = #{zb}</if>
+            <if test="ytdsyqr != null  and ytdsyqr != ''"> and ytdsyqr = #{ytdsyqr}</if>
+            <if test="wz != null  and wz != ''"> and wz = #{wz}</if>
+            <if test="mj != null "> and mj = #{mj}</if>
+            <if test="ghyt != null  and ghyt != ''"> and ghyt = #{ghyt}</if>
+            <if test="sflrndcbjh != null  and sflrndcbjh != ''"> and sflrndcbjh = #{sflrndcbjh}</if>
+            <if test="tdzqqk != null  and tdzqqk != ''"> and tdzqqk = #{tdzqqk}</if>
+            <if test="tdsyqsfsh != null  and tdsyqsfsh != ''"> and tdsyqsfsh = #{tdsyqsfsh}</if>
+            <if test="zxtdz != null  and zxtdz != ''"> and zxtdz = #{zxtdz}</if>
+            <if test="lwth != null  and lwth != ''"> and lwth = #{lwth}</if>
+            <if test="xmsc != null  and xmsc != ''"> and xmsc = #{xmsc}</if>
+            <if test="fk != null  and fk != ''"> and fk = #{fk}</if>
+            <if test="zz != null  and zz != ''"> and zz = #{zz}</if>
+            <if test="ly != null  and ly != ''"> and ly = #{ly}</if>
+            <if test="wk != null  and wk != ''"> and wk = #{wk}</if>
+            <if test="rw != null  and rw != ''"> and rw = #{rw}</if>
+            <if test="kgbzqk != null  and kgbzqk != ''"> and kgbzqk = #{kgbzqk}</if>
+            <if test="bcqk != null  and bcqk != ''"> and bcqk = #{bcqk}</if>
+            <if test="cqqk != null  and cqqk != ''"> and cqqk = #{cqqk}</if>
+            <if test="dxgwhc != null  and dxgwhc != ''"> and dxgwhc = #{dxgwhc}</if>
+            <if test="ljqy != null  and ljqy != ''"> and ljqy = #{ljqy}</if>
+            <if test="cbhtqd != null  and cbhtqd != ''"> and cbhtqd = #{cbhtqd}</if>
+            <if test="bcfzf != null  and bcfzf != ''"> and bcfzf = #{bcfzf}</if>
+            <if test="cbhs != null  and cbhs != ''"> and cbhs = #{cbhs}</if>
+            <if test="bjhc != null  and bjhc != ''"> and bjhc = #{bjhc}</if>
+            <if test="tqgd != null  and tqgd != ''"> and tqgd = #{tqgd}</if>
+        </where>
+    </select>
+    
+    <select id="selectZhscGztzById" parameterType="Long" resultMap="ZhscGztzResult">
+        <include refid="selectZhscGztzVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertZhscGztz" parameterType="ZhscGztz" useGeneratedKeys="true" keyProperty="id">
+        insert into zhsc_gztz
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="xq != null">xq,</if>
+            <if test="zb != null">zb,</if>
+            <if test="ytdsyqr != null">ytdsyqr,</if>
+            <if test="wz != null">wz,</if>
+            <if test="mj != null">mj,</if>
+            <if test="ghyt != null">ghyt,</if>
+            <if test="sflrndcbjh != null">sflrndcbjh,</if>
+            <if test="tdzqqk != null">tdzqqk,</if>
+            <if test="tdsyqsfsh != null">tdsyqsfsh,</if>
+            <if test="zxtdz != null">zxtdz,</if>
+            <if test="lwth != null">lwth,</if>
+            <if test="xmsc != null">xmsc,</if>
+            <if test="fk != null">fk,</if>
+            <if test="zz != null">zz,</if>
+            <if test="ly != null">ly,</if>
+            <if test="wk != null">wk,</if>
+            <if test="rw != null">rw,</if>
+            <if test="kgbzqk != null">kgbzqk,</if>
+            <if test="bcqk != null">bcqk,</if>
+            <if test="cqqk != null">cqqk,</if>
+            <if test="dxgwhc != null">dxgwhc,</if>
+            <if test="ljqy != null">ljqy,</if>
+            <if test="cbhtqd != null">cbhtqd,</if>
+            <if test="bcfzf != null">bcfzf,</if>
+            <if test="cbhs != null">cbhs,</if>
+            <if test="bjhc != null">bjhc,</if>
+            <if test="tqgd != null">tqgd,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="xq != null">#{xq},</if>
+            <if test="zb != null">#{zb},</if>
+            <if test="ytdsyqr != null">#{ytdsyqr},</if>
+            <if test="wz != null">#{wz},</if>
+            <if test="mj != null">#{mj},</if>
+            <if test="ghyt != null">#{ghyt},</if>
+            <if test="sflrndcbjh != null">#{sflrndcbjh},</if>
+            <if test="tdzqqk != null">#{tdzqqk},</if>
+            <if test="tdsyqsfsh != null">#{tdsyqsfsh},</if>
+            <if test="zxtdz != null">#{zxtdz},</if>
+            <if test="lwth != null">#{lwth},</if>
+            <if test="xmsc != null">#{xmsc},</if>
+            <if test="fk != null">#{fk},</if>
+            <if test="zz != null">#{zz},</if>
+            <if test="ly != null">#{ly},</if>
+            <if test="wk != null">#{wk},</if>
+            <if test="rw != null">#{rw},</if>
+            <if test="kgbzqk != null">#{kgbzqk},</if>
+            <if test="bcqk != null">#{bcqk},</if>
+            <if test="cqqk != null">#{cqqk},</if>
+            <if test="dxgwhc != null">#{dxgwhc},</if>
+            <if test="ljqy != null">#{ljqy},</if>
+            <if test="cbhtqd != null">#{cbhtqd},</if>
+            <if test="bcfzf != null">#{bcfzf},</if>
+            <if test="cbhs != null">#{cbhs},</if>
+            <if test="bjhc != null">#{bjhc},</if>
+            <if test="tqgd != null">#{tqgd},</if>
+         </trim>
+    </insert>
+
+    <update id="updateZhscGztz" parameterType="ZhscGztz">
+        update zhsc_gztz
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="xq != null">xq = #{xq},</if>
+            <if test="zb != null">zb = #{zb},</if>
+            <if test="ytdsyqr != null">ytdsyqr = #{ytdsyqr},</if>
+            <if test="wz != null">wz = #{wz},</if>
+            <if test="mj != null">mj = #{mj},</if>
+            <if test="ghyt != null">ghyt = #{ghyt},</if>
+            <if test="sflrndcbjh != null">sflrndcbjh = #{sflrndcbjh},</if>
+            <if test="tdzqqk != null">tdzqqk = #{tdzqqk},</if>
+            <if test="tdsyqsfsh != null">tdsyqsfsh = #{tdsyqsfsh},</if>
+            <if test="zxtdz != null">zxtdz = #{zxtdz},</if>
+            <if test="lwth != null">lwth = #{lwth},</if>
+            <if test="xmsc != null">xmsc = #{xmsc},</if>
+            <if test="fk != null">fk = #{fk},</if>
+            <if test="zz != null">zz = #{zz},</if>
+            <if test="ly != null">ly = #{ly},</if>
+            <if test="wk != null">wk = #{wk},</if>
+            <if test="rw != null">rw = #{rw},</if>
+            <if test="kgbzqk != null">kgbzqk = #{kgbzqk},</if>
+            <if test="bcqk != null">bcqk = #{bcqk},</if>
+            <if test="cqqk != null">cqqk = #{cqqk},</if>
+            <if test="dxgwhc != null">dxgwhc = #{dxgwhc},</if>
+            <if test="ljqy != null">ljqy = #{ljqy},</if>
+            <if test="cbhtqd != null">cbhtqd = #{cbhtqd},</if>
+            <if test="bcfzf != null">bcfzf = #{bcfzf},</if>
+            <if test="cbhs != null">cbhs = #{cbhs},</if>
+            <if test="bjhc != null">bjhc = #{bjhc},</if>
+            <if test="tqgd != null">tqgd = #{tqgd},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteZhscGztzById" parameterType="Long">
+        delete from zhsc_gztz where id = #{id}
+    </delete>
+
+    <delete id="deleteZhscGztzByIds" parameterType="String">
+        delete from zhsc_gztz where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

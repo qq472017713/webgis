@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jzsjcdlxxzx.camera.mapper.SysCameraMapper">
+    
+    <resultMap type="SysCamera" id="SysCameraResult">
+        <result property="cameraId"    column="camera_id"    />
+        <result property="url"    column="url"    />
+        <result property="flv"    column="flv"    />
+        <result property="hls"    column="hls"    />
+        <result property="mode"    column="mode"    />
+        <result property="autoclose"    column="autoclose"    />
+        <result property="type"    column="type"    />
+        <result property="mediakey"    column="mediaKey"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectSysCameraVo">
+        select camera_id, url, flv, hls, mode, autoclose, type, mediaKey, remark from sys_camera
+    </sql>
+
+    <select id="selectSysCameraList" parameterType="SysCamera" resultMap="SysCameraResult">
+        <include refid="selectSysCameraVo"/>
+        <where>  
+            <if test="url != null  and url != ''"> and url = #{url}</if>
+            <if test="flv != null  and flv != ''"> and flv = #{flv}</if>
+            <if test="hls != null  and hls != ''"> and hls = #{hls}</if>
+            <if test="mode != null "> and mode = #{mode}</if>
+            <if test="autoclose != null  and autoclose != ''"> and autoclose = #{autoclose}</if>
+            <if test="type != null "> and type = #{type}</if>
+            <if test="mediakey != null  and mediakey != ''"> and mediaKey = #{mediakey}</if>
+        </where>
+    </select>
+    
+    <select id="selectSysCameraById" parameterType="Long" resultMap="SysCameraResult">
+        <include refid="selectSysCameraVo"/>
+        where camera_id = #{cameraId}
+    </select>
+        
+    <insert id="insertSysCamera" parameterType="SysCamera" useGeneratedKeys="true" keyProperty="cameraId">
+        insert into sys_camera
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="url != null">url,</if>
+            <if test="flv != null">flv,</if>
+            <if test="hls != null">hls,</if>
+            <if test="mode != null">mode,</if>
+            <if test="autoclose != null">autoclose,</if>
+            <if test="type != null">type,</if>
+            <if test="mediakey != null">mediaKey,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="url != null">#{url},</if>
+            <if test="flv != null">#{flv},</if>
+            <if test="hls != null">#{hls},</if>
+            <if test="mode != null">#{mode},</if>
+            <if test="autoclose != null">#{autoclose},</if>
+            <if test="type != null">#{type},</if>
+            <if test="mediakey != null">#{mediakey},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSysCamera" parameterType="SysCamera">
+        update sys_camera
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="url != null">url = #{url},</if>
+            <if test="flv != null">flv = #{flv},</if>
+            <if test="hls != null">hls = #{hls},</if>
+            <if test="mode != null">mode = #{mode},</if>
+            <if test="autoclose != null">autoclose = #{autoclose},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="mediakey != null">mediaKey = #{mediakey},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where camera_id = #{cameraId}
+    </update>
+
+    <delete id="deleteSysCameraById" parameterType="Long">
+        delete from sys_camera where camera_id = #{cameraId}
+    </delete>
+
+    <delete id="deleteSysCameraByIds" parameterType="String">
+        delete from sys_camera where camera_id in 
+        <foreach item="cameraId" collection="array" open="(" separator="," close=")">
+            #{cameraId}
+        </foreach>
+    </delete>
+    
+</mapper>

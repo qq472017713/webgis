@@ -1,0 +1,44 @@
+mediaserver:
+  mediaversion: 1.0
+  #网络超时，15秒
+  netTimeout: 15000000
+  #读写超时，15秒
+  readOrWriteTimeout: 15000000
+  #无人观看时是否自动关闭流
+  autoClose: true
+  #无人拉流观看持续多久自动关闭，1分钟
+    noClientsDuration: 60000
+  #保存录像切片目录
+  #mediaserver.path = d:/flv/ts
+
+#  #修改代码是否自动重启
+#  spring.devtools.restart.enabled=false
+
+
+
+#
+#spring:
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:file:./emdata/camera
+#    username: sa
+#    password: 123456
+#
+#  resources:
+#    static-locations: classpath:/templates/,classpath:/static/
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#  #      ddl-auto:create----每次运行该程序，没有表格会新建表格，表内有数据会清空
+#  #      ddl-auto:create-drop----每次程序结束的时候会清空表
+#  #      ddl-auto:update----每次运行程序，没有表格会新建表格，表内有数据不会清空，只会更新
+#  #      ddl-auto:validate----运行程序会校验数据与数据库的字段类型是否相同，不同会报错
+#
+#  h2:
+#    console:
+#      path: /h2-console
+#      enabled: true
+#      settings:
+#        web-allow-others: true
+##        trace: true
